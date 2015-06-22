@@ -84,7 +84,9 @@ class ApiController extends BaseController {
 
     public function showWelcome()
     {
-            return View::make('hello');
+            return Response::json(['status' => 200, 'stats' => 1]);
+
+            //return View::make('hello');
     }
 
 }
