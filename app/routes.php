@@ -21,3 +21,15 @@ Route::group(array('prefix' => 'api'), function()
 {
        Route::get('test', array('as' => 'api.test', 'uses' => 'ApiController@showWelcome'));
 });
+
+// Route for API
+Route::group(array('prefix' => 'api/v1'), function()
+{
+    Route::get('index', array('as' => 'api.v1.index', 'uses' => 'UserController@index'));
+    Route::get('show/{id}', array('as' => 'api.v1.index', 'uses' => 'UserController@show'));
+    Route::resource('photos', 'PhotoController');
+    Route::resource('users', 'UserController');
+    Route::resource('categories', 'CategoryController');
+});
+
+Route::resource('files', 'ImagesController');
